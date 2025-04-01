@@ -1,0 +1,164 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #6a11cb, #2575fc); /* Purple to blue gradient */
+  color: #333;
+  text-align: center;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+header h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+/* Product List */
+#product-list {
+  display: flex;
+  flex-wrap: wrap; /* Wrap products into rows */
+  justify-content: center;
+  gap: 20px; /* Space between product cards */
+  margin-top: 20px;
+}
+
+/* Product Card */
+.product {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 250px; /* Fixed width for cards */
+  padding: 15px;
+  text-align: center;
+}
+
+.product img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.product h2 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #333;
+}
+
+.product p {
+  color: #666;
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+/* Buy Now Button */
+.product button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.product button:hover {
+  background-color: #0056b3;
+}
+
+/* Wallet Balance */
+#walletBalance {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-top: 10px;
+}
+
+/*=======================*/
+
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #6a11cb, #2575fc); /* Purple to blue gradient */
+  color: #fff;
+  text-align: center;
+}
+
+/* Container */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Header */
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+header p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #eaeaea;
+}
+
+/* Buttons Container */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between buttons */
+  margin-top: 20px;
+}
+
+/* Buttons Styling */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50px; /* Rounded buttons */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  text-align: center;
+}
+
+.signup-btn {
+  background-color: #28a745; /* Green */
+  color: #fff;
+}
+
+.signup-btn:hover {
+  background-color: #218838; /* Darker green on hover */
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+.login-btn {
+  background-color: #007bff; /* Blue */
+  color: #fff;
+}
+
+.login-btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Footer */
+footer p {
+  color: #ccc;
+  margin-top: 20px;
+}
+

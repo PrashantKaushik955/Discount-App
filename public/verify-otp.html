@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify OTP</title>
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+  <div class="auth-container">
+    <form id="otpForm">
+      <h1>Verify OTP</h1>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="text" id="otp" placeholder="Enter OTP" pattern="[0-9]{6}" title="OTP must be a 6-digit number" required>
+      <button type="submit">Verify OTP</button>
+    </form>
+    <button id="resendOTP" class="resend-btn">Resend OTP</button> <!-- Resend OTP button -->
+  </div>
+  <script src="scripts/auth.js"></script>
+</body>
+</html>
+

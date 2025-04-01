@@ -1,0 +1,61 @@
+/* General body styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container styles */
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Success message box */
+.success-box {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* Stacks elements vertically */
+  justify-content: center; /* Centers content vertically */
+  align-items: center; /* Centers content horizontally */
+  gap: 20px; /* Adds spacing between elements */
+}
+
+.success-box h1 {
+  color: #28a745; /* Green for success */
+  font-size: 1.8rem;
+  margin-bottom: 10px; /* Adjust margin for spacing */
+}
+
+.success-box p {
+  color: #555;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+/* Back to home button */
+.back-btn {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #007bff; /* Blue for button */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #0056b3;
+}

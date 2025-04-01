@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete Your Payment</title>
+  <link rel="stylesheet" href="payment.css">
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+  <div class="payment-container">
+    <header>
+      <h1>Secure Payment</h1>
+      <p>Complete your purchase below</p>
+    </header>
+    <div class="payment-form">
+      <form id="payment-form">
+        <div id="card-element"></div>
+        <button type="submit" id="submit-payment">Pay Now</button>
+      </form>
+      <p id="payment-message" class="hidden"></p>
+    </div>
+  </div>
+
+  <script>
+    const stripe = Stripe("pk_test_51Qx0KOJeHQh7U8Yf9UQTxyQGlYeR0AW7waYifVA7CFecwmhOD5FDJUidPRiQhtneLlLJH8m2uKaMFHSR7ipZbi7P00XhRo95j4");
+
+    const initializePayment = async () => {
+      const productId = localStorage.getItem("productId"); // Get product ID from storage
+      const userId = localStorage.getItem("userId"); // Get user ID from storage
+
+  // Debug logs to check retrieved values
+  console.log("Retrieved productId from localStorage:", productId);
+  console.log("Retrieved userId from localStorage:", userId);
+
+
+  if (!userId) {
+    alert("User not logged in. Please log in again.");
+    window.location.href = "login.html"; // Redirect to login if userId is missing
+    return;
+  }
+
+      const response = await fetch("http://localhost:9000/api/v1/user/payments/payment-intent", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify({ productId , userId}),
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        const clientSecret = result.clientSecret;
+        console.log("Payment Intent Created. Client Secret:", clientSecret);
+        const elements = stripe.elements();
+        const card = elements.create("card");
+        card.mount("#card-element");
+
+        const paymentForm = document.getElementById("payment-form");
+        paymentForm.addEventListener("submit", async (event) => {
+          event.preventDefault();
+
+          const { error } = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+              card: card,
+            },
+          });
+
+          const paymentMessage = document.getElementById("payment-message");
+          if (error) {
+            paymentMessage.textContent = `Payment Failed: ${error.message}`;
+            paymentMessage.classList.remove("hidden");
+            paymentMessage.style.color = "red";
+          } else {
+            paymentMessage.textContent = "Payment Successful! Thank you for your purchase.";
+            paymentMessage.classList.remove("hidden");
+            paymentMessage.style.color = "green";
+        // Wait for 5 seconds before redirecting to login
+        setTimeout(() => {
+          localStorage.removeItem("productId"); // Clear productId
+          window.location.href = "login.html"; // Redirect to login page
+        }, 5000);
+          }
+        });
+      } else {
+        alert(result.message || "Failed to initialize payment.");
+      }
+    };
+
+    document.addEventListener("DOMContentLoaded", initializePayment);
+  </script>
+</body>
+</html>
