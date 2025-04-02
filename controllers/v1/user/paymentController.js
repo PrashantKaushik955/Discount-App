@@ -9,7 +9,6 @@ exports.createPaymentIntent = async (req, res) => {
   try {
     const { productId, userId } = req.body;
 
-    console.log('Creating Payment Intent for:', { productId, userId });
 
     // Validate User ID
     if (!userId || userId === "undefined") {
