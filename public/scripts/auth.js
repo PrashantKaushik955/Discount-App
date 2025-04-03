@@ -9,7 +9,7 @@ document.getElementById("signupForm")?.addEventListener("submit", async (event) 
   const isAdmin = document.getElementById("role").value;
 
   try {
-    const response = await fetch("http://13.233.101.237:9000/api/v1/user/register", {
+    const response = await fetch("http://3.110.55.9:9000/api/v1/user/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, phone, password, isAdmin }),
@@ -35,7 +35,7 @@ document.getElementById("loginForm")?.addEventListener("submit", async (event) =
   const password = document.getElementById("password").value;
 
   try {
-    const response = await fetch("http://13.233.101.237:9000/api/v1/user/login", {
+    const response = await fetch("http://3.110.55.9:9000/api/v1/user/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -68,7 +68,7 @@ document.getElementById("otpForm")?.addEventListener("submit", async (event) => 
   const otp = document.getElementById("otp").value;
 
   try {
-    const response = await fetch("http://13.233.101.237:9000/api/v1/user/verify-otp", {
+    const response = await fetch("http://3.110.55.9:9000/api/v1/user/verify-otp", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, otp }),
@@ -96,7 +96,7 @@ document.getElementById("resendOTP")?.addEventListener("click", async () => {
   }
 
   try {
-    const response = await fetch("http://13.233.101.237:9000/api/v1/user/resend-otp", {
+    const response = await fetch("http://3.110.55.9:9000/api/v1/user/resend-otp", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email }),
